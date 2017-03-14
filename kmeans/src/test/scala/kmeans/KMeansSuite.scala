@@ -1,18 +1,13 @@
 package kmeans
 
-import java.util.concurrent._
+import org.junit.runner.RunWith
+import org.scalatest.FunSuite
+import org.scalatest.junit.JUnitRunner
 
 import scala.collection._
-import org.scalatest.{FunSuite, path}
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import kmeans.Point
-import common._
-
-import scala.math._
 
 object KM extends KMeans
-import KM._
+import kmeans.KM._
 
 @RunWith(classOf[JUnitRunner])
 class KMeansSuite extends FunSuite {

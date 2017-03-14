@@ -65,14 +65,13 @@ class KMeans {
   }
 
   def converged(eta: Double)(oldMeans: GenSeq[Point], newMeans: GenSeq[Point]): Boolean = {
-    print(eta)
     oldMeans.zip(newMeans).forall { case (o, n) => math.sqrt(math.pow(o.x - n.x, 2) + math.pow(o.y - n.y, 2) + math.pow(o.z - n.z, 2)) <= eta}
   }
 
   @tailrec
   final def kMeans(points: GenSeq[Point], means: GenSeq[Point], eta: Double): GenSeq[Point] = {
     val newMeans = update(classify(points, means), means)
-    if (!converged(eta)(means, newMeans)) kMeans(points, newMeans, eta) else means // your implementation need to be tail recursive
+    if (!converged(eta)(means, newMeans)) kMeans(points, newMeans, eta) else newMeans // your implementation need to be tail recursive
   }
 }
 
